@@ -106,45 +106,51 @@ a {
   height: 4px;
   padding: 0;
   display: inline-block;
+
+  &>div {
+    content: "";
+    background: black;
+    width: 4px;
+    height: 4px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    border-radius: 50%;
+
+    &:nth-of-type(1) {
+      left: 15px;
+    }
+
+    &:nth-of-type(3) {
+      left: -15px;
+    }
+  }
 }
 
-#loader>div {
-  content: "";
-  background: black;
-  width: 4px;
-  height: 4px;
-  position: absolute;
-  top: 0;
-  left: 0;
-  border-radius: 50%;
-}
-
-#loader>div:nth-of-type(1) {
-  left: 15px;
-}
-
-#loader>div:nth-of-type(3) {
-  left: -15px;
-}
-
+/* ##################  */
+/* where is this works
+###################### */
 /* dots fade */
 .dots-fade>div {
   -webkit-animation: dots-fade 1.6s infinite ease;
   animation: dots-fade 1.6s infinite ease;
   -webkit-animation-delay: 0.4s;
   animation-delay: 0.4s;
+
+  &:nth-of-type(1) {
+    -webkit-animation-delay: 0.8s;
+    animation-delay: 0.8s;
+  }
+
+  :nth-of-type(3) {
+    -webkit-animation-delay: 0s;
+    animation-delay: 0s;
+  }
 }
 
-.dots-fade>div:nth-of-type(1) {
-  -webkit-animation-delay: 0.8s;
-  animation-delay: 0.8s;
-}
-
-.dots-fade>div:nth-of-type(3) {
-  -webkit-animation-delay: 0s;
-  animation-delay: 0s;
-}
-
+/* ##################  */
+/* where is this works
+###################### */
 @keyframes dots-fade {
   0% {
     opacity: 1;
@@ -169,33 +175,34 @@ a {
   z-index: 99999999 !important;
 }
 
+/* #################  */
 .sidebar ul {
   text-align: center;
   gap: 30px;
   list-style: none;
-}
 
-.sidebar ul li a {
-  color: #fff !important;
-  letter-spacing: 0.3px;
-  transition: 0.35s;
-  font-size: 30px;
-  padding: 10px 0px;
-  display: inline-block;
-}
+  li a {
+    color: #fff !important;
+    letter-spacing: 0.3px;
+    transition: 0.35s;
+    font-size: 30px;
+    padding: 10px 0px;
+    display: inline-block;
 
-.sidebar ul li a:hover {
-  color: #4FB8FF;
+    &:hover {
+      color: #4FB8FF;
+    }
+  }
 }
 
 .toggle_button {
   background: rgb(17, 17, 17) !important;
-}
 
-.toggle_button:focus {
-  box-shadow: 0 0 0 white !important;
-  background: var(--themeDark);
-  outline: none;
+  &:focus {
+    box-shadow: 0 0 0 white !important;
+    background: var(--themeDark);
+    outline: none;
+  }
 }
 
 /*sidebar 
@@ -227,38 +234,40 @@ header {
   box-shadow: rgba(0, 0, 0, 0.25) 0px 14px 28px, rgba(0, 0, 0, 0.22) 0px 10px 10px;
   border-radius: 34px;
   padding: 20px 60px;
-}
 
-.navbar_menu ul {
-  display: flex;
-  list-style: none;
-  padding: 0;
-  margin: 0;
-  gap: 45px;
-}
+  ul {
+    display: flex;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    gap: 45px;
 
-.navbar_menu ul li a {
-  letter-spacing: 2px;
-  text-transform: uppercase;
-  line-height: 133%;
-  position: relative;
-  font-size: 14px;
-}
+    li {
+      a {
+        letter-spacing: 2px;
+        text-transform: uppercase;
+        line-height: 133%;
+        position: relative;
+        font-size: 14px;
 
-.navbar_menu ul li a::before {
-  position: absolute;
-  content: "";
-  width: 0%;
-  height: 2px;
-  background: white;
-  right: 0;
-  bottom: -2px;
-  transition: 0.25s;
-}
+        &::before {
+          position: absolute;
+          content: "";
+          width: 0%;
+          height: 2px;
+          background: white;
+          right: 0;
+          bottom: -2px;
+          transition: 0.25s;
+        }
 
-.navbar_menu ul li a:hover::before {
-  width: 100%;
-  left: 0;
+        &:hover::before {
+          width: 100%;
+          left: 0;
+        }
+      }
+    }
+  }
 }
 
 .toogler_button {
@@ -269,16 +278,69 @@ header {
   padding: 10px 20px;
   color: white;
   border: none;
-}
 
-.toogler_button i {
-  font-size: 20px;
+  i {
+    font-size: 20px;
+  }
 }
 
 /*navbar
 =================================================================================*/
 /*hero section css
 ===============================================================================*/
+/* .hero_wrapper {
+  padding: 0px 0px 70px 0px;
+
+  >.container {
+    position: relative !important;
+  }
+}
+
+.hero_text {
+  padding-top: 80px;
+
+  h1 {
+    font-size: 86px;
+    letter-spacing: 5px;
+    line-height: 91%;
+    color: #2a2a2a;
+    text-transform: uppercase;
+
+    span {
+      color: #d31217;
+    }
+  }
+
+  p {
+    color: #5c6b73;
+    line-height: 150%;
+    margin-top: 40px;
+    margin-bottom: 0;
+  }
+}
+
+.hero_text {
+  .hero_image_box {
+    position: absolute;
+    top: 0;
+    right: -160px;
+
+    >div {
+      position: relative;
+    }
+
+    img {
+      max-width: 800px;
+      height: auto;
+    }
+  }
+}
+
+.hero_image_box .note {
+  position: absolute;
+  left: -40px;
+  top: 30%;
+} */
 .hero_wrapper {
   padding: 0px 0px 70px 0px;
 }
@@ -337,14 +399,14 @@ header {
 ===============================================================================*/
 .service_images {
   background: #ededeb;
-}
 
-.service_images .first_iamge {
-  position: relative;
-  height: 100%;
-  background: url("../media/Oil-drop.png");
-  background-size: cover;
-  border-radius: 0px 45px 45px 0px;
+  .first_image {
+    position: relative;
+    height: 100%;
+    background: url("../media/Oil-drop.png");
+    background-size: cover;
+    border-radius: 0px 45px 45px 0px;
+  }
 }
 
 .grid_1 {
@@ -389,45 +451,46 @@ header {
   border-radius: 30px;
   background: white;
   transition: 0.35s ease;
-}
 
-.service_card:hover {
-  transform: translateY(-5px);
-  scale: 1.01;
+  &:hover {
+    transform: translateY(-5px);
+    scale: 1.01;
+  }
 }
 
 .service_card_body {
   padding: 36px 24px;
-}
 
-.service_card_body h3 {
-  color: var(--themeRed);
-  letter-spacing: 5px;
-  font-size: 30px;
-  text-transform: uppercase;
-}
+  &>h3 {
+    color: var(--themeRed);
+    letter-spacing: 5px;
+    font-size: 30px;
+    text-transform: uppercase;
+  }
 
-.service_card_body p {
-  color: #5c6b73;
-  min-height: 120px;
-  margin-bottom: 0;
-}
+  &>p {
+    color: #5c6b73;
+    min-height: 120px;
+    will-change: transform;
+    margin-bottom: 0;
+  }
 
-.service_card_body a {
-  background: var(--themeRed);
-  padding: 5px 35px;
-  border-radius: 30px;
-  color: white;
-  font-size: 14px;
-  letter-spacing: 3px;
-  text-transform: uppercase;
-  margin: 30px auto 0px auto;
-  display: inline-block;
-  transition: 0.35s;
-}
+  *>a {
+    background: var(--themeRed);
+    padding: 5px 35px;
+    border-radius: 30px;
+    color: white;
+    font-size: 14px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    margin: 30px auto 0px auto;
+    display: inline-block;
+    transition: 0.35s;
 
-.service_card_body a:hover {
-  background: var(--themeDark);
+    &:hover {
+      background: var(--themeDark);
+    }
+  }
 }
 
 /*service card section
@@ -445,14 +508,15 @@ header {
   font-size: 60px;
   letter-spacing: 4px;
   line-height: 105%;
-}
 
-.too_perfect_heading span {
-  color: var(--themeRed);
-}
-.too_perfect_logo{
-  width: 310px;
-  height: auto;
+  &>span {
+    color: var(--themeRed);
+  }
+
+  .too_perfect_logo {
+    width: 310px;
+    height: auto;
+  }
 }
 
 /*It’s too perfect to be just street food
@@ -469,17 +533,17 @@ header {
   background: white;
   padding: 40px 30px;
   height: 100%;
-}
 
-.Standard_Pizza_box .pizza_card_title {
-  color: var(--themeRed);
-  text-transform: uppercase;
-  letter-spacing: 1px;
-}
+  .pizza_card_title {
+    color: var(--themeRed);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+  }
 
-.Standard_Pizza_box p {
-  color: var(--themeDark);
-  margin-bottom: 10px;
+  p {
+    color: var(--themeDark);
+    margin-bottom: 10px;
+  }
 }
 
 .Gourmet_Pizza_box {
@@ -487,17 +551,17 @@ header {
   background: var(--themeDark);
   padding: 40px 30px;
   height: 100%;
-}
 
-.Gourmet_Pizza_box .pizza_card_title {
-  color: #feefdc;
-  text-transform: uppercase;
-  letter-spacing: 1px;
-}
+  .pizza_card_title {
+    color: #feefdc;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+  }
 
-.Gourmet_Pizza_box p {
-  color: white;
-  margin-bottom: 10px;
+  p {
+    color: white;
+    margin-bottom: 10px;
+  }
 }
 
 /*pizza section css
@@ -513,7 +577,7 @@ header {
 .contact_heading {
   color: var(--themeDark);
   text-transform: uppercase;
-  letter-spacing:4px;
+  letter-spacing: 4px;
   line-height: 1.3;
 }
 
@@ -521,28 +585,33 @@ header {
   padding: 30px 0px 50px 0px;
 }
 
-.contact_form .row {
-  gap: 40px 0px;
+.contact_form {
+  .row {
+    gap: 40px 0px;
+  }
+
+  input {
+    width: 100%;
+    background: white;
+    border-radius: 10px;
+    height: 55px;
+    border: none;
+    padding: 0px 20px;
+    box-sizing: border-box;
+    color: var(--themeDark);
+    font-family: "Aleo", serif;
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 1px 2px 0px;
+
+    &:focus {
+      outline: none;
+    }
+  }
 }
 
-.contact_form input {
-  width: 100%;
-  background: white;
-  border-radius: 10px;
-  height: 55px;
-  border: none;
-  padding: 0px 20px;
-  box-sizing: border-box;
-  color: var(--themeDark);
-  font-family: "Aleo", serif;
-  box-shadow: rgba(0, 0, 0, 0.1) 0px 1px 2px 0px;
-}
-
-.contact_form input:focus {
-  outline: none;
-}
-
-.contact_form textarea {
+/* ############ 
+     
+################ */
+.contact_form .contact_form input .contact_form textarea {
   width: 100%;
   background: white;
   border-radius: 10px;
@@ -569,14 +638,14 @@ header {
   transition: 0.35s;
   letter-spacing: 1.5px;
   text-transform: uppercase;
+
+  &:hover {
+    color: white;
+    background: var(--themeDark);
+  }
 }
 
-.contact_form button:hover {
-  color: white;
-  background: var(--themeDark);
-}
-
-.social_box {
+.contact_form button .social_box {
   background: white;
   border-radius: 32px;
   padding: 30px 50px;
@@ -596,18 +665,20 @@ header {
   fill: var(--themeRed);
 }
 
-.social_box .social_title {
-  color: var(--themeDark);
-  letter-spacing: 0.5px;
-  text-transform: uppercase;
-  margin-bottom: 10px;
-  font-family: "Jost", sans-serif;
-}
+.social_box {
+  .social_title {
+    color: var(--themeDark);
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+    margin-bottom: 10px;
+    font-family: "Jost", sans-serif;
+  }
 
-.social_box .social_text {
-  color: var(--themeDark);
-  line-height: 1.8;
-  margin-bottom: 5px;
+  .social_text {
+    color: var(--themeDark);
+    line-height: 1.8;
+    margin-bottom: 5px;
+  }
 }
 
 .spotify_card {
@@ -619,18 +690,18 @@ header {
   gap: 20px;
   align-items: center;
   justify-content: center;
-}
 
-.spotify_card .social_title {
-  color: white;
-  text-transform: uppercase;
-  letter-spacing: 2px;
-  line-height: 120%;
-  font-family: "Jost", sans-serif;
-}
+  .social_title {
+    color: white;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    line-height: 120%;
+    font-family: "Jost", sans-serif;
+  }
 
-.spotify_card .social_text {
-  color: white;
+  .social_text {
+    color: white;
+  }
 }
 
 /*contac section css
@@ -644,19 +715,21 @@ footer {
 
 .footer_logo {
   text-align: right;
+
+  p {
+    letter-spacing: 2.5px;
+    text-transform: uppercase;
+    color: #feefdc;
+    font-size: 19px;
+    line-height: 1.8;
+  }
 }
 
-.footer_text p {
-  letter-spacing: 2.5px;
-  text-transform: uppercase;
-  color: #feefdc;
-  font-size: 19px;
-  line-height: 1.8;
-}
-
-.copy_right {
-  margin-top: 40px;
-  font-size: 12px;
+.footer_text {
+  .copy_right {
+    margin-top: 40px;
+    font-size: 12px;
+  }
 }
 
 /*footer css
@@ -669,7 +742,8 @@ footer {
     top: 0;
     right: 0;
   }
-  .hero_image_box{
+
+  .hero_image_box {
     right: -100px;
   }
 }
@@ -684,30 +758,34 @@ footer {
 
   .navbar_menu {
     padding: 20px 40px;
+
+    ul {
+      gap: 20px;
+    }
   }
 
-  .navbar_menu ul {
-    gap: 20px;
-  }
-
-  .hero_image_box{
+  .hero_image_box {
     right: -120px;
   }
 
   /*hero section
   =======================*/
-  .hero_image_box img {
-    max-width: 600px;
+  .hero_image_box {
+    img {
+      max-width: 600px;
+    }
   }
 
   /*service cards 
   ======================*/
-  .service_card_body h3 {
-    font-size: 24px;
-  }
+  .service_card_body {
+    &>h3 {
+      font-size: 24px;
+    }
 
-  .service_card_body p {
-    min-height: 165px;
+    &>p {
+      min-height: 165px;
+    }
   }
 }
 
@@ -763,16 +841,20 @@ footer {
 
   /*hero section
   =========================*/
-  .hero_text h1 {
-    font-size: 60px;
+  .hero_text {
+    h1 {
+      font-size: 60px;
+    }
   }
 
-  .hero_image_box{
+  .hero_image_box {
     right: -80px;
   }
 
-  .hero_image_box img {
-    max-width: 460px;
+  .hero_image_box {
+    img {
+      max-width: 460px;
+    }
   }
 
   .hero_image_box .note {
@@ -787,12 +869,14 @@ footer {
     padding: 40px 0px;
   }
 
-  .service_card_body h3 {
-    font-size: 26px;
-  }
+  .service_card_body {
+    h3 {
+      font-size: 26px;
+    }
 
-  .service_card_body p {
-    min-height: 105px;
+    p {
+      min-height: 105px;
+    }
   }
 
   .service_card_row {
@@ -817,8 +901,10 @@ footer {
 
   /*contact section
   =======================*/
-  .contact_form .row {
-    gap: 20px 0px;
+  .contact_form {
+    .row {
+      gap: 20px 0px;
+    }
   }
 
   .spotify_card {
@@ -891,12 +977,14 @@ footer {
     padding-top: 20px;
   }
 
-  .hero_text h1 {
-    font-size: 40px;
-  }
+  .hero_text {
+    &>h1 {
+      font-size: 40px;
+    }
 
-  .hero_text p {
-    margin-top: 16px;
+    &>.hero_text p {
+      margin-top: 16px;
+    }
   }
 
   .hero_image_box .note {
@@ -904,15 +992,14 @@ footer {
     width: 100px;
     top: 15%;
   }
-  .hero_image_box img{
+
+  .hero_image_box img {
     max-width: 100%;
   }
 
   /*service image
   =======================*/
-  .service_images {}
-
-  .first_iamge {
+  .first_image {
     height: 400px !important;
     border-radius: 32px !important;
     margin-bottom: 10px;
@@ -934,12 +1021,16 @@ footer {
     padding: 30px 0px;
   }
 
-  .service_card_body h3 {
-    font-size: 22px;
+  .service_card_body {
+    &>h3 {
+      font-size: 22px;
+    }
   }
 
-  .service_card_body p {
-    min-height: auto;
+  .service_card_body {
+    &>p {
+      min-height: auto;
+    }
   }
 
   .service_card {
@@ -1011,11 +1102,11 @@ footer {
   .footer_logo_image {
     text-align: center;
     padding-bottom: 40px;
-  }
 
-  .footer_logo_image img {
-    width: 150px;
-    height: auto;
+    img {
+      width: 150px;
+      height: auto;
+    }
   }
 
   .footer_logo {
