@@ -381,7 +381,7 @@ header {
 }
 
 .hero_image_box {
-  div {
+  &>div {
     position: relative;
   }
 }
