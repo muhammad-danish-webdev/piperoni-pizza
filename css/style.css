@@ -176,21 +176,23 @@ a {
 }
 
 /* #################  */
-.sidebar ul {
-  text-align: center;
-  gap: 30px;
-  list-style: none;
+.sidebar {
+  ul {
+    text-align: center;
+    gap: 30px;
+    list-style: none;
 
-  li a {
-    color: #fff !important;
-    letter-spacing: 0.3px;
-    transition: 0.35s;
-    font-size: 30px;
-    padding: 10px 0px;
-    display: inline-block;
+    li a {
+      color: #fff !important;
+      letter-spacing: 0.3px;
+      transition: 0.35s;
+      font-size: 30px;
+      padding: 10px 0px;
+      display: inline-block;
 
-    &:hover {
-      color: #4FB8FF;
+      &:hover {
+        color: #4FB8FF;
+      }
     }
   }
 }
@@ -343,29 +345,29 @@ header {
 } */
 .hero_wrapper {
   padding: 0px 0px 70px 0px;
-}
 
-.hero_wrapper>.container {
-  position: relative !important;
+  &>.container {
+    position: relative !important;
+  }
 }
 
 .hero_text {
   padding-top: 80px;
+
+  &>h1 {
+    font-size: 86px;
+    letter-spacing: 5px;
+    line-height: 91%;
+    color: #2a2a2a;
+    text-transform: uppercase;
+
+    &>span {
+      color: #d31217;
+    }
+  }
 }
 
-.hero_text h1 {
-  font-size: 86px;
-  letter-spacing: 5px;
-  line-height: 91%;
-  color: #2a2a2a;
-  text-transform: uppercase;
-}
-
-.hero_text h1 span {
-  color: #d31217;
-}
-
-.hero_text p {
+.hero_text h1 .hero_text p {
   color: #5c6b73;
   line-height: 150%;
   margin-top: 40px;
@@ -378,19 +380,25 @@ header {
   right: -160px;
 }
 
-.hero_image_box div {
-  position: relative;
+.hero_image_box {
+  div {
+    position: relative;
+  }
 }
 
-.hero_image_box .note {
-  position: absolute;
-  left: -40px;
-  top: 30%;
+.hero_image_box {
+  .note {
+    position: absolute;
+    left: -40px;
+    top: 30%;
+  }
 }
 
-.hero_image_box img {
-  max-width: 800px;
-  height: auto;
+.hero_image_box {
+  img {
+    max-width: 800px;
+    height: auto;
+  }
 }
 
 /*hero section css
